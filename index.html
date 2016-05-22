@@ -57,9 +57,6 @@
     div[class^='js-page']:hover, div[class*=' js-page']:hover {
       background-color: #4febe4;
     }
-    #map > .gm-style {
-      pointer-events: none;
-    }
     .one-and-a-half.columns {
       width: 8.8888888885%;
     }
@@ -188,7 +185,6 @@
       { pagination: false
       , loop: false 
       , beforeMove: function (index) {
-          $('#map .gm-style').css('pointer-events', 'none')
           $('.header .row img').css('height', (index === 1 ? '40vmin' : '12vh'))
         }
       })
@@ -215,9 +211,8 @@
     // MAP
     function initMap () {
       var church = { lat: 51.5162937, lng: -0.304803 }  
-      map = new google.maps.Map(document.getElementById('map'), { center: church, zoom: 17, mapTypeControl: false, styles: mapstyles })
+      map = new google.maps.Map(document.getElementById('map'), { center: church, zoom: 17, mapTypeControl: false })
       var marker = new google.maps.Marker({ position: church, map: map, title: 'Church!' })
-      $('#map').on('click', function () { $(this).find('.gm-style').css('pointer-events', 'auto') })
     }
     // MAP
 
