@@ -10,6 +10,9 @@
   <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <style>
+    p{
+      font-size: 20px;
+    }
     @font-face {
       font-family: 'humanist';
       src: url('humanist.tff');
@@ -169,7 +172,7 @@
           <ul>
             <li data-section='location'>Location
               <ul>
-                <li data-section='somethingelse'>Something</li>
+                <li data-section='accomodation'>Accomodation</li>
                 <li>Option 2</li>
                 <li data-section='something'>Option 2</li>
               </ul>
@@ -179,10 +182,7 @@
         <div class="one-and-a-half columns">
           <ul>
             <li data-section='registry'>Registry
-              <ul>
-                <li>Option 1</li>
-                <li>Option 2</li>
-              </ul>
+              
             </li>
           </ul>
         </div>
@@ -191,9 +191,9 @@
         </div>
         <div class="one-and-a-half columns">
           <ul>
-            <li data-section='schedule'>Schedule
+            <li data-section='schedule'>Wedding Day
               <ul>
-                <li>Option 1</li>
+                <li data-section='weddingparty'>Wedding Party</li>
                 <li>Option 2</li>
               </ul>
             </li>
@@ -224,13 +224,25 @@
         <div class="row">
           <div class="seven columns">
           	<h3>Ceremony and Reception </h3>
-          	<p>Haven Green Baptist Church <br> Castlebar Road, Ealing, London, W5 2UP </p>
+          	  <p>Haven Green Baptist Church <br> Castlebar Road, Ealing, London, W5 2UP </p>
+            <h3>By Car </h3>
+              <p>There is no parking at the church for guests, we would recommend using the ealing broadway Carpark</p>
+            <h3>By Public Transport</h3>
           </div>
 
           <div class="three columns">
             <div id="map" style="width: 100%; height: 50vh;"></div>
           </div>          
           <div class="two columns"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section-content accomodation-section">
+      <div>
+        <div class="twelve columns">
+          <h3>Accomodation</h3>
+          <p>There is a bed and breakfast called The Caspian Hotel which is situated right outside the church.
+          <br> we recommend using a service called <a href="www.airbnb.co.uk/c/bevans187?s=8">AirBnB</a></p>
         </div>
       </div>
     </section>
@@ -242,16 +254,12 @@
 
       </div>
       <div class ="six columns">
-      <p>We have also setup a charity wedding registry, so you can buy a gift for charity instead if that is something you would prefer to do <br><a href="https://www.oxfam.org.uk/shop/gift-list/?ggitid=1022695"> <h3>Charity</h3></a> </p>
+      <p>We have also setup a charity wedding registry, so you can buy a gift for charity instead if that is something you would prefer to do <br><a href="https://www.oxfam.org.uk/shop/gift-list/1022695"> <h3>Charity</h3></a> </p>
 
       </div>
      </div>
     </section>
-    <section class="section-content something-section">
-      <div>
-        <h3>Something</h3>
-      </div>
-    </section>
+    
     <section class="section-content somethingelse-section">
       <div>
         <h3 class='js-index'>Something else yay</h3>
@@ -259,7 +267,29 @@
     </section>
     <section class="section-content schedule-section">
       <div>
-        <h3>Schedule</h3>
+        <h3>Wedding Day</h3>
+      </div>
+    </section>
+    <section class="section-content weddingparty-section">
+      <div>
+        <div class="six columns">
+          <h3>Groomsmen</h3>
+          <p>Phil Cranmer: Best Man</p>
+          <p>Clive Evans: Father of the Groom</p>
+          <p>Nathan Hamilton: Usher</p>
+          <p>Luke Paynter: Usher</p>
+          <p>Charlie Evans: Usher</p>
+          <p>Sam Evans: Usher</p>
+          <p>Calum Bunce: Usher</p>
+        </div>
+        <div>
+          <h3>Bridal Party</h3>
+          <p>Andrew Dalton: Father of the Bride</p>
+          <p>Jess Duckworth: Bridesmaid</p>
+          <p>Alicia Tompsett: Bridesmaid</p>
+          <p>Grace Dalton: Bridesmaid</p>
+          <p>Joanna Dalton: Bridesmaid</p>
+        </div>
       </div>
     </section>
     <section class="section-content gallery-section">
@@ -273,7 +303,7 @@
           </div>
         </figure>
         <figure class="back">
-          <a href='mailto:matt.a.elphy@gmail.com'>
+          <a href='mailto:benjyandkatie@gmail.com'>
             <div class="content">
               <h4>Click here to send us an email</h4>
             </div>
@@ -343,7 +373,7 @@
     // MAP
 
     // INSTAGRAM
-    var hashtag = 'sunrise'
+    var hashtag = 'benjyandkatie2016'
     var url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=2237680130.1677ed0.9576fb74d04f40e596e006e4c1e64029&count=20'
     $.ajax({
       url: url,
