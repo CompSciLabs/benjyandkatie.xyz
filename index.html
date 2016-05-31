@@ -103,13 +103,62 @@
     #card a {
       color: #000000;
     }
+
+    .header ul {
+      list-style:none;
+      position:relative;
+      margin: 0;
+      padding: 0
+    }
+
+    .header ul a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .header ul li {
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    .header ul li:hover, .header ul li * {
+      background-color: #FFFFFF;
+    }
+
+    .header ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #FFFFFF;
+      padding: 0;
+    }
+
+    .header ul ul li {
+      width: 175px
+    }
+
+    .header ul li:hover > ul {
+      background-color: #FFFFFF;
+      display:block;
+    }
   </style>
 </head>
 <body>
   <div class="header">
     <div class="container">
       <div class="row">
-        <div class="one-and-a-half columns js-page-location">Location</div>
+        <div class="one-and-a-half columns js-page-location">
+          <ul>
+            <li>Location
+              <ul>
+                <li>Option 1</li>
+                <li>Option 2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         <div class="one-and-a-half columns js-page-registry">Registry</div>
         <div class="six columns js-index">
           <h5><img src="./icon.png" alt=""></h5>
@@ -143,7 +192,9 @@
       </div>
     </section>
     <section class="section-content">
-      <h3>Schedule</h3>
+      <div>
+        <h3>Schedule</h3>
+      </div>
     </section>
     <section class="section-content">
       <div class="gallery fotorama"></div>
@@ -156,9 +207,11 @@
           </div>
         </figure>
         <figure class="back">
-          <div class="content">
-            <a href='mailto:matt.a.elphy@gmail.com'><h4>Click here to send us an email</h4></a>
-          </div>
+          <a href='mailto:matt.a.elphy@gmail.com'>
+            <div class="content">
+              <h4>Click here to send us an email</h4>
+            </div>
+          </a>
         </figure>
       </div>
     </section>
@@ -178,7 +231,6 @@
   }
   </script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-  <script type="text/javascript" src="./map-style.js"></script>
   <script type="text/javascript">
     // SCROLLING
     $('.main').onepage_scroll(
@@ -213,6 +265,9 @@
       var church = { lat: 51.5162937, lng: -0.304803 }  
       map = new google.maps.Map(document.getElementById('map'), { center: church, zoom: 17, mapTypeControl: false })
       var marker = new google.maps.Marker({ position: church, map: map, title: 'Church!' })
+      google.maps.event.addListener(marker, 'click', function() {
+          window.open('https://www.google.co.uk/maps/place/Haven+Green+Baptist+Church/@51.5164374,-0.3045354,19.15z/data=!4m5!3m4!1s0x0000000000000000:0xcd4f3b93ea381a37!8m2!3d51.5163555!4d-0.3051033', '_blank')
+      })
     }
     // MAP
 
