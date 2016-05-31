@@ -43,25 +43,27 @@
       width: 100%;
       z-index: 9999;
     }
-    .header .row * {
+    .header .row > * {
       height: 12vh;
       line-height: 12vh;
     }
     .header .row img {
       -webkit-transition: height 1s;
-      height: 40vmin;
-    }
-    div[class^='js-page'], div[class*=' js-page'] {
-      cursor: pointer;
-    }
-    div[class^='js-page']:hover, div[class*=' js-page']:hover {
-      background-color: #4febe4;
+      -moz-transition: height 1s;
+      transition: height 1s;
+      height: 60vmin;
     }
     .one-and-a-half.columns {
       width: 8.8888888885%;
     }
     .gallery {
       padding-top: 12vh;
+    }
+    .timer {
+      margin-top: 25vh;
+    }
+    .js-index {
+      cursor: pointer;
     }
 
     #card {
@@ -108,7 +110,8 @@
       list-style:none;
       position:relative;
       margin: 0;
-      padding: 0
+      padding: 0;
+      cursor: pointer;
     }
 
     .header ul a {
@@ -122,7 +125,11 @@
       margin-bottom: 0;
     }
 
-    .header ul li:hover, .header ul li * {
+    .header.odd ul li:hover, .header.odd ul li * {
+      background-color: #4febe4;
+    }
+
+    .header.even ul li:hover, .header.even ul li * {
       background-color: #FFFFFF;
     }
 
@@ -131,27 +138,47 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background: #FFFFFF;
       padding: 0;
+      width: 100%;
     }
 
     .header ul ul li {
-      width: 175px
+      height: 6vh;
+      line-height: 6vh;
     }
 
     .header ul li:hover > ul {
-      background-color: #FFFFFF;
       display:block;
     }
+
+    .header.odd ul ul li:hover {
+      background-color: #21e6dd;
+    }
+
+    .header.even ul ul li:hover {
+      background-color: #eee;
+    }
+
   </style>
 </head>
 <body>
-  <div class="header">
+  <div class="header odd">
     <div class="container">
       <div class="row">
-        <div class="one-and-a-half columns js-page-location">
+        <div class="one-and-a-half columns">
           <ul>
-            <li>Location
+            <li data-section='location'>Location
+              <ul>
+                <li data-section='somethingelse'>Something</li>
+                <li>Option 2</li>
+                <li data-section='something'>Option 2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="one-and-a-half columns">
+          <ul>
+            <li data-section='registry'>Registry
               <ul>
                 <li>Option 1</li>
                 <li>Option 2</li>
@@ -159,44 +186,71 @@
             </li>
           </ul>
         </div>
-        <div class="one-and-a-half columns js-page-registry">Registry</div>
         <div class="six columns js-index">
           <h5><img src="./icon.png" alt=""></h5>
         </div>
-        <div class="one-and-a-half columns js-page-schedule">Schedule</div>
-        <div class="one-and-a-half columns js-page-gallery">Gallery</div>
+        <div class="one-and-a-half columns">
+          <ul>
+            <li data-section='schedule'>Schedule
+              <ul>
+                <li>Option 1</li>
+                <li>Option 2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="one-and-a-half columns">
+          <ul>
+            <li data-section='gallery'>Gallery
+              <ul>
+                <li>Option 1</li>
+                <li>Option 2</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
   <div class="main showHeader">
     <section class="section-content">
       <div>
-        <h2><span class="js-timer"></span></h2>
+        <h2 class='timer'><span class="js-timer"></span></h2>
       </div>
     </section>
-    <section class="section-content">
+    <section class="section-content location-section">
       <div>
         <h3>Location</h3>
         <div class="row">
-          <div class="seven columns js-page-location">Location</div>
-          <div class="three columns js-page-location">
+          <div class="seven columns">Location</div>
+          <div class="three columns">
             <div id="map" style="width: 100%; height: 50vh;"></div>
           </div>          
           <div class="two columns"></div>
         </div>
       </div>
     </section>
-    <section class="section-content">
+    <section class="section-content registry-section">
       <div>
         <a href="https://www.johnlewisgiftlist.com/giftint/guestpassword?giftListNumber=667686"><h3>Registry</h3></a>
       </div>
     </section>
-    <section class="section-content">
+    <section class="section-content something-section">
+      <div>
+        <h3>Something</h3>
+      </div>
+    </section>
+    <section class="section-content somethingelse-section">
+      <div>
+        <h3 class='js-index'>Something else yay</h3>
+      </div>
+    </section>
+    <section class="section-content schedule-section">
       <div>
         <h3>Schedule</h3>
       </div>
     </section>
-    <section class="section-content">
+    <section class="section-content gallery-section">
       <div class="gallery fotorama"></div>
     </section>
     <section class="section-content">
@@ -237,14 +291,19 @@
       { pagination: false
       , loop: false 
       , beforeMove: function (index) {
-          $('.header .row img').css('height', (index === 1 ? '40vmin' : '12vh'))
+          $('.header .row img').css('height', (index === 1 ? '60vmin' : '12vh'))
+          var headerClass = index % 2 === 0 ? 'even' : 'odd'
+          $('.header').removeClass('even').removeClass('odd').addClass(headerClass)
         }
       })
     $('.js-index').on('click', $('.main').moveTo.bind(null, 1))
-    $('.js-page-location').on('click', $('.main').moveTo.bind(null, 2))
-    $('.js-page-registry').on('click', $('.main').moveTo.bind(null, 3))
-    $('.js-page-schedule').on('click', $('.main').moveTo.bind(null, 4))
-    $('.js-page-gallery').on('click', $('.main').moveTo.bind(null, 5))
+    $('.header li').each(function (index, element) {
+      var sectionIndex = $('.main').find('section').index($('.' + $(element).data('section') + '-section'))
+      $(element).on('click', function (pageIndex) {
+        $('.main').moveTo(pageIndex)
+        return false
+      }.bind(null, sectionIndex + 1))
+    })
     // SCROLLING
 
     // TIMER
