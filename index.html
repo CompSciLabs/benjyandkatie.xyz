@@ -22,8 +22,13 @@
       font-family: 'humanist';
     }
     a {
-      color: #4febe4;
       text-decoration: none;
+    }
+    .section-content:nth-child(even) a {
+      color: #FFFFFF;
+    }
+    .section-content:nth-child(odd) a {
+      color: #4febe4;
     }
     .section-content { 
       display: table; height: 100%; width: 100%;
@@ -46,15 +51,9 @@
       width: 100%;
       z-index: 9999;
     }
-    .header .row > * {
+    .header .row > *:not(.index-logo) {
       height: 12vh;
       line-height: 12vh;
-    }
-    .header .row img {
-      -webkit-transition: height 1s;
-      -moz-transition: height 1s;
-      transition: height 1s;
-      height: 60vmin;
     }
     .one-and-a-half.columns {
       width: 8.8888888885%;
@@ -67,6 +66,17 @@
     }
     .js-index {
       cursor: pointer;
+    }
+    .index-logo {
+      background-color: transparent;
+      background-image: url('./icon.png');
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 55vh;
+      -webkit-transition: height 1s;
+      -moz-transition: height 1s;
+      transition: height 1s;
     }
 
     #card {
@@ -186,8 +196,7 @@
             </li>
           </ul>
         </div>
-        <div class="six columns js-index">
-          <h5><img src="./icon.png" alt=""></h5>
+        <div class="six columns js-index index-logo">
         </div>
         <div class="one-and-a-half columns">
           <ul>
@@ -333,9 +342,9 @@
       { pagination: false
       , loop: false 
       , beforeMove: function (index) {
-          $('.header .row img').css('height', (index === 1 ? '60vmin' : '12vh'))
-          var headerClass = index % 2 === 0 ? 'even' : 'odd'
-          $('.header').removeClass('even').removeClass('odd').addClass(headerClass)
+          $('.index-logo').css('height', (index === 1 ? '55vmin' : '12vh'))  
+          var positionClass = index % 2 === 0 ? 'even' : 'odd'
+          $('.header').removeClass('even').removeClass('odd').addClass(positionClass)      
         }
       })
     $('.js-index').on('click', $('.main').moveTo.bind(null, 1))
