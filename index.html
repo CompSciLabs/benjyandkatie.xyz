@@ -11,7 +11,7 @@
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <style>
     p{
-      font-size: 20px;
+      font-size: 16px;
     }
     @font-face {
       font-family: 'humanist';
@@ -30,17 +30,17 @@
     .section-content:nth-child(odd) a {
       color: #4febe4;
     }
-    .section-content { 
+    .section-content {
       display: table; height: 100%; width: 100%;
     }
-    .section-content:nth-child(even) { 
-      background-color: #4febe4; 
+    .section-content:nth-child(even) {
+      background-color: #4febe4;
     }
-    .section-content:nth-child(odd) { 
-      background-color: #FFFFFF; 
+    .section-content:nth-child(odd) {
+      background-color: #FFFFFF;
     }
-    .section-content > * { 
-      display: table-cell; text-align: center; vertical-align: middle; 
+    .section-content > * {
+      display: table-cell; text-align: center; vertical-align: middle;
     }
     .header {
       background-color: #FFFFFF;
@@ -110,9 +110,9 @@
     }
 
     #card .content {
-      display: table-cell; 
-      text-align: center; 
-      vertical-align: middle; 
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
     }
 
     #card a {
@@ -192,7 +192,7 @@
         <div class="one-and-a-half columns">
           <ul>
             <li data-section='registry'>Registry
-              
+
             </li>
           </ul>
         </div>
@@ -203,19 +203,14 @@
             <li data-section='schedule'>Wedding Day
               <ul>
                 <li data-section='weddingparty'>Wedding Party</li>
-                <li>Option 2</li>
+                <li data-section='gallery'>Gallery</li>
               </ul>
             </li>
           </ul>
         </div>
         <div class="one-and-a-half columns">
           <ul>
-            <li data-section='gallery'>Gallery
-              <ul>
-                <li>Option 1</li>
-                <li>Option 2</li>
-              </ul>
-            </li>
+            <li data-section='contactus'>Contact Us</li>
           </ul>
         </div>
       </div>
@@ -230,28 +225,35 @@
     <section class="section-content location-section">
       <div>
         <h3>Location</h3>
-        <div class="row">
-          <div class="seven columns">
-          	<h3>Ceremony and Reception </h3>
-          	  <p>Haven Green Baptist Church <br> Castlebar Road, Ealing, London, W5 2UP </p>
-            <h3>By Car </h3>
-              <p>There is no parking at the church for guests, we would recommend using the ealing broadway Carpark</p>
-            <h3>By Public Transport</h3>
+          <div class="eight columns">
+          	<h4>Ceremony and Reception </h4>
+          	  <p>Haven Green Baptist Church <br> Castlebar Road, Ealing, London, W5 2UP
+              <br> Click on the pin on the map to the right for the location in google maps </p>
+            <h4>By Car </h4>
+              <p>There is no parking on the church site for guests,
+              <br> There are carparks nearby to the Church which are:
+              <br> Ealing Broadway Shopping Centre Carpark, Ealing Broadway, London, W5 5JY
+              <br> Springbridge Road Carpark, Ealing, London, W5 2AB </p>
+            <h4>By Public Transport</h4>
+            <p> There is a tube station nearby called Ealing Broadway Station which is on the central line and the district line.
+            <br> There are a multitude of buses which stop nearby to the church. Such buses are the E2, E8, E9, 297, 65</p>
           </div>
 
           <div class="three columns">
             <div id="map" style="width: 100%; height: 50vh;"></div>
-          </div>          
-          <div class="two columns"></div>
-        </div>
-      </div>
+          </div>
+
     </section>
     <section class="section-content accommodation-section">
       <div>
         <div class="twelve columns">
           <h3>Accommodation</h3>
-          <p>There is a bed and breakfast called The Caspian Hotel which is situated right outside the church.
-          <br> we recommend using a service called <a href="www.airbnb.co.uk/c/bevans187?s=8">AirBnB</a></p>
+          <p>There are many hotels situated all across London and here are a few which are close by:</p>
+          <p>Premier Inn which costs around £90 for a room<br> The address is Parkman Ltd, 22-24 Uxbridge Rd, London, W5 2RJ</p>
+          <p>Hotel Xanadu which costs around £84 for a room <br> The address is 26-42 Bond St, Ealing, London W5 5AA</p>
+          <p>Travelodge which costs around £54 for a room <br> The address is 77 Uxbridge Rd, Ealing, London W5 5SJ</p>
+          <p>The Caspian Hotel which costs around £90 for a room. <br>The address is 14 Haven Green, London W5 2UU (opposite the church)</p>
+          <p>Alternatively there is a service called <a href="https://www.airbnb.co.uk/c/bevans187?s=8">Airbnb</a>. Click the name to go to their website, which gives you £20 off your first booking</p>
         </div>
       </div>
     </section>
@@ -268,7 +270,7 @@
       </div>
      </div>
     </section>
-    
+
     <section class="section-content somethingelse-section">
       <div>
         <h3 class='js-index'>Something else yay</h3>
@@ -277,6 +279,10 @@
     <section class="section-content schedule-section">
       <div>
         <h3>Wedding Day</h3>
+        <div class="seven columns">
+          <h4>Order of service </h4>
+          <p> 13:30 Bride arrival <br> 14:00 signing of the registry <br> </p>
+        </div>
       </div>
     </section>
     <section class="section-content weddingparty-section">
@@ -302,22 +308,14 @@
       </div>
     </section>
     <section class="section-content gallery-section">
+      <h4>Gallery</h4>
       <div class="gallery fotorama"></div>
     </section>
-    <section class="section-content">
-      <div id="card">
-        <figure class="front">
-          <div class="content">
-            <h4>Contact Us</h4>
-          </div>
-        </figure>
-        <figure class="back">
-          <a href='mailto:benjyandkatie@gmail.com'>
-            <div class="content">
-              <h4>Click here to send us an email</h4>
-            </div>
-          </a>
-        </figure>
+    <section class="section-content contactus-section">
+      <div>
+        <h4>Contact Us</h4>
+        <p>If you have any queries, feel free to email us. Our email address is benjyandkatie@gmail.com</p>
+        <p><a href='mailto:benjyandkatie@gmail.com'>Click here to email us</a></p>
       </div>
     </section>
   </div>
@@ -340,11 +338,11 @@
     // SCROLLING
     $('.main').onepage_scroll(
       { pagination: false
-      , loop: false 
+      , loop: false
       , beforeMove: function (index) {
-          $('.index-logo').css('height', (index === 1 ? '55vmin' : '12vh'))  
+          $('.index-logo').css('height', (index === 1 ? '55vmin' : '12vh'))
           var positionClass = index % 2 === 0 ? 'even' : 'odd'
-          $('.header').removeClass('even').removeClass('odd').addClass(positionClass)      
+          $('.header').removeClass('even').removeClass('odd').addClass(positionClass)
         }
       })
     $('.js-index').on('click', $('.main').moveTo.bind(null, 1))
@@ -372,7 +370,7 @@
 
     // MAP
     function initMap () {
-      var church = { lat: 51.5162937, lng: -0.304803 }  
+      var church = { lat: 51.5162937, lng: -0.304803 }
       map = new google.maps.Map(document.getElementById('map'), { center: church, zoom: 17, mapTypeControl: false })
       var marker = new google.maps.Marker({ position: church, map: map, title: 'Church!' })
       google.maps.event.addListener(marker, 'click', function() {
@@ -382,7 +380,7 @@
     // MAP
 
     // INSTAGRAM
-    var hashtag = 'benjyandkatie2016'
+    var hashtag = 'beach'
     var url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=2237680130.1677ed0.9576fb74d04f40e596e006e4c1e64029&count=20'
     $.ajax({
       url: url,
