@@ -338,7 +338,6 @@
       </div>
     </section>
     <section class="section-content gallery-section">
-      <h4>Gallery</h4>
       <div class="gallery fotorama"></div>
     </section>
     <section class="section-content contactus-section">
@@ -358,7 +357,7 @@
   , width: '100%'
   , autoplay: true
   , loop: true
-  , fit: 'constrain'
+  , fit: 'scaledown'
   , nav: 'thumbs'
   , trackpad: false
   }
@@ -417,24 +416,41 @@
     // MAP
 
     // INSTAGRAM
-    var hashtag = 'beach'
-    var url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=2237680130.99b0314.5752f8ba2f434d5d8f874cb88208aaf9&count=20'
+    var hashtag = 'benjyandkatie2016'
+    // var url = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=2237680130.99b0314.5752f8ba2f434d5d8f874cb88208aaf9&count=20'
+    // $.ajax({
+    //   url: url,
+    //   data: {},
+    //   jsonp: 'callback',
+    //   type: 'GET',
+    //   success: function (data) {
+    //     var images = data.data
+    //     images.forEach(function (image) {
+    //       var url = image.images.standard_resolution.url
+    //       $('.gallery').append('<img src="' + url + '"/>')
+    //     })
+    //     $('.fotorama').fotorama()
+    //     $('head').append($('.fotorama').parent().find('style').detach())
+    //     $('.fotorama').fotorama()
+    //   },
+    //   dataType: 'jsonp'
+    // })
+
+    var url = 'http://whispering-gorge-30979.herokuapp.com/api/' + hashtag
     $.ajax({
       url: url,
       data: {},
       jsonp: 'callback',
       type: 'GET',
       success: function (data) {
-        var images = data.data
+        var images = data
         images.forEach(function (image) {
-          var url = image.images.standard_resolution.url
-          $('.gallery').append('<img src="' + url + '"/>')
+          $('.gallery').append('<img src="' + image.display_src + '" data-caption="' + image.caption + '"/>')
         })
         $('.fotorama').fotorama()
         $('head').append($('.fotorama').parent().find('style').detach())
         $('.fotorama').fotorama()
-      },
-      dataType: 'jsonp'
+      }
     })
     // INSTAGRAM
 
