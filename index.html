@@ -37,8 +37,8 @@
       color: #4febe4;
     }
     .section-content {
-      display: table; 
-      height: 100%; 
+      display: table;
+      height: 100%;
       width: 100%;
     }
     .section-content:nth-child(even) {
@@ -48,8 +48,8 @@
       background-color: #FFFFFF;
     }
     .section-content > * {
-      display: table-cell; 
-      text-align: center; 
+      display: table-cell;
+      text-align: center;
       vertical-align: middle;
     }
     .header {
@@ -143,7 +143,7 @@
       white-space: nowrap;
       font-size: 2vmin;
     }
-    
+
     .header ul a {
       display: block;
       color: #333;
@@ -300,11 +300,15 @@
     </section>
 
     <section class="section-content schedule-section">
-      <div>
-        <h3>Wedding Day</h3>
-        <div>
+      <div class="container">
+        <h2>Wedding day</h2>
+        <div class="seven columns">
           <h4>Timetable </h4>
           <p> <strong>12:45</strong> Church open for guests to arrive<br> <strong>13:15</strong> settle into seats <br> <strong>13:30 </strong> Bride arrival, Start of ceremony<br> <strong>14:30</strong> End of Ceremony Refreshments <br> <strong>16:00</strong> Wedding Breakfast<br> <strong>20:00</strong> Live Music and Dancing <br> <strong>21:30</strong> Silent Disco <br> <strong>23:00</strong> End of Celebrations and guest departure</p>
+        </div>
+        <div class="two columns">
+          <h4>Dress Code</h4>
+          <p>Formal</p>
         </div>
       </div>
     </section>
@@ -312,13 +316,13 @@
   <div>
     <div>
       <h3>Food</h3>
-      <p>There will be a full meal served in the Large Hall. The four courses will be interspersed with speeches. <br>The food will be served in sharing platters in the centre of each table. We want you to feel at home and serve yourself the food and amount you would like. <br>The menu contains both meat and vegetarian options.</p>  
+      <p>There will be a full meal served in the Large Hall. The four courses will be interspersed with speeches. <br>The food will be served in sharing platters in the centre of each table. We want you to feel at home and serve yourself the food and amount you would like. <br>The menu contains both meat and vegetarian options.</p>
       <p>Please let us know of any dietary requirements <strong> as soon as possible.</strong></p>
-      
+
       <h3>Alcohol</h3>
       <p>The church has made a special exception for our wedding to allow alcohol to be served with the meal. <br> We ask that you would please respect the church and the concession they have made for us.</p>
       <p>Strictly no alcohol is allowed to be brought by guests, or taken out of the large hall. We will be providing all the alcohol for the meal.<br> There will be non-alcoholic options available too.</p>
-      
+
     </div>
   </div>
 </section>
@@ -407,7 +411,7 @@
       function formatTimeComponent (time, unit) {
         return time[unit] ? (time[unit] + ' ' + (time[unit] === 1 ? unit.slice(0, -1) : unit)) : ''
       }
-      var timeTo = moment.duration(moment('2016-08-25') - moment(), 'milliseconds')._data
+      var timeTo = moment.duration(moment('2016-08-20') - moment(), 'milliseconds')._data
         , diplayedFields = [ 'months', 'days', 'hours', 'minutes', 'seconds' ]
         , display = diplayedFields.map(formatTimeComponent.bind(null, timeTo)).filter(function (c) { return c !== '' }).join(', ')
       $('.js-timer').html(display)
